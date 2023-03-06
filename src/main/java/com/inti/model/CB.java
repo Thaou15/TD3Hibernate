@@ -24,6 +24,12 @@ public class CB extends Paiement{
 		this.numeroCarte = numeroCarte;
 		this.dateExpiration = dateExpiration;
 	}
+	
+	public CB(double montant, LocalDate date, int numeroCarte, LocalDate dateExpiration) {
+		super(montant, date);
+		this.numeroCarte = numeroCarte;
+		this.dateExpiration = dateExpiration;
+	}
 	public int getNumeroCarte() {
 		return numeroCarte;
 	}

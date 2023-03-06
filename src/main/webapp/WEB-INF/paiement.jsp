@@ -13,12 +13,24 @@
   <h1> Paiement</h1>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label" >Montant</label>
-    <input type="number" name="montant" required="required" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">  
+    <input type="number" name="montant" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">  
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label" >Date paiement (AAAA-MM-JJ)</label>
     <input type="text" name="datepaie"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">  
   </div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="paiement" id="flexRadioDisabled" value="paypal">
+  <label class="form-check-label" for="flexRadioDisabled">
+    Paypal
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="paiement" id="flexRadioCheckedDisabled" checked value="cb">
+  <label class="form-check-label" for="flexRadioCheckedDisabled">
+    CB
+  </label>
+</div>
  <h3>Paypal</h3>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label" >Numero compte</label>

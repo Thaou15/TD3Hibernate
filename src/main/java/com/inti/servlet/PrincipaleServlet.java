@@ -15,6 +15,7 @@ import org.hibernate.Session;
 
 import com.inti.model.CB;
 import com.inti.model.Paiement;
+import com.inti.model.Paypal;
 
 import com.inti.util.HibernateUtil;
 
@@ -47,9 +48,18 @@ public class PrincipaleServlet extends HttpServlet {
 			
 			log.info("Début enregistrement du paiement");
 			
-			CB cb = new CB(Integer.parseInt(request.getParameter("numCarte")),LocalDate.parse(request.getParameter("dateExp")));
-			Paiement p = new Paiement (Double.parseDouble(request.getParameter("montant")), LocalDate.parse(request.getParameter("datepaie")));
+			Paiement p1 = null;
+			if (request.getParameter("paiement").equals("cb"))
+			{
+			 p1 = new CB(Double.parseDouble(request.getParameter("montant")),LocalDate.parse(request.getParameter("datepaie")), Integer.parseInt(request.getParameter("numCarte")),LocalDate.parse(request.getParameter("dateExp")));
+			}
 			
+			else 
+			{
+				p1 = new Paypal(Double.parseDouble(request.getParameter("montant")),LocalDate.parse(request.getParameter("datepaie")),Integer.parseInt(request.getParameter("numcompteP")));
+			}
+
+			s.save(p1);
 		
 		
 			
