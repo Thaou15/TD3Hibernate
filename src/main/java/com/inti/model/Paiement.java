@@ -2,6 +2,7 @@ package com.inti.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
@@ -11,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table
@@ -21,10 +24,12 @@ public class Paiement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPaiement;
-	double montant;
-	LocalDate date;
+	private double montant;
+	private LocalDate date;
 	
-	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idP")
+	private Commande commande;
 	
 	public Paiement() {
 		super();
